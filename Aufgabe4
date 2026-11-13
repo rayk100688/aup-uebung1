@@ -1,0 +1,12 @@
+fn fak (n:u32)->u32{ 						//erstelle eine Funktion "fak"
+	if n == 0 {						//Austrittsbedingung für die Rekursion
+		1
+	}
+	else {
+		n*fak(n-1)					//rekursiver Aufruf der Multiplikation im Abstand der Laufvariablen
+	}
+}
+/*_____________________________Main_______________________________________*/
+fn main (){
+println!("{}",fak(5))					//Ausgabe von 5!
+}
