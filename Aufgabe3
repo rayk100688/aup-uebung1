@@ -1,0 +1,12 @@
+fn aufsummieren (n:u32)->u32{ 		//erstelle eine Funktion "aufsummieren"
+	if n == 0 {				//Austrittsbedingung für die Rekursion
+		0
+	}
+	else {
+	n+aufsummieren(n-1)				//rekursiver Aufruf der Addition im Abstand der Laufvariablen
+	}
+}
+/*_____________________________Main_______________________________________*/
+fn main (){
+println!("{}",aufsummieren(5))			//Ausgabe der Aufsummierung 1+2+3+4+5
+}
