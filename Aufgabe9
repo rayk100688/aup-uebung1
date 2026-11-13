@@ -1,0 +1,20 @@
+fn binomialkoeffizient (n:u32, k:u32)->u32 {		// Definition der Funktion "binomialkoeffizient" 
+	if n>=k {						//Auswertung der Berechenbarkeit
+		fn fak (f:u32)->u32{ 				//erstelle eine Hilfsunktion "fak"
+			if f == 0 {				//Austrittsbedingung für die Rekursion
+				1
+			}
+			else {
+				f*fak(f-1)			//rekursiver Aufruf der Multiplikation im Abstand der Laufvariablen
+			}					//Hilfsfunktion Ende
+		}
+		fak(n)/(fak(k)*fak(n-k))			//Berechnungsvorschrift für den Binomialkoeffizienten
+	} else {
+		println! ("Berechnung nicht möglich, n muss größer als k sein!");	//Falls Berechnung nicht möglich
+		0
+	}	
+}
+/*_____________________________Main_______________________________________*/
+fn main () {
+	println! ("{}", binomialkoeffizient(5,2));		//Ausgabe des Binomialkoeffizienten
+}
