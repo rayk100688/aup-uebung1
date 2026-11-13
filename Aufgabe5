@@ -1,0 +1,17 @@
+fn sum_even(n:u32)->u32{ 					//erstelle eine Funktion "sum_even"
+	if n == 0 {						//Austrittsbedingung für die Rekursion
+		0
+	}
+	else {
+		if n%2==0 {					//Rest der ganzzahligen Division durch 2 ergibt 0 bei geraden Zahlen
+			n+sum_even(n-1)			//Aufaddieren und Laufvariable um eins reduzieren
+		}							
+		else {
+			sum_even(n-1)			//Für ungerade Zahlen Rekursion ohne Addition
+		}
+	}
+}
+/*_____________________________Main_______________________________________*/
+fn main (){
+println!("{}",sum_even(6))				//Ausgabe von 6+4+2=12!
+}
