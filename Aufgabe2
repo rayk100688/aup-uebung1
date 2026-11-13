@@ -1,0 +1,7 @@
+fn fahrenheit_aus_celsius (celsius:u32)->u32 {   		// Definition der Funktion "fahrenheit_aus_celsius" 
+	(celsius*9/5)+32					// Umrechnung Fahrenheit in °C
+}
+/*_____________________________Main_______________________________________*/
+fn main () {
+	println! ("{} °F",fahrenheit_aus_celsius(911));		// Ausgabe des °C aus 911F
+}
