@@ -1,0 +1,12 @@
+fn division_restwert(divident:u32, divisor:u32)->u32 { 		// Definition der Funktion "division_restwert" 
+	if divident-divisor < divisor {			                    // Austrittskriterium wenn der Zähler weniger als doppelt so groß ist wie der Nenner 
+		divident-divisor			                                // Ausgabe Differenz aus Zähler und Nenner ist Rest der Division
+	}
+	else{						                                        // Wenn der Zähler wenigstens doppelt so groß ist wie der Nenner 
+		division_restwert(divident-divisor,divisor)		        // Reduziere den Zähler ein mal um den Nenner -> Rekursion
+	}
+}
+/*_____________________________Main_______________________________________*/
+fn main() {
+	println! ("{}", division_restwert(10,3));				        // Ausgabe des Divisionsrestes aus 10 und 3
+}
