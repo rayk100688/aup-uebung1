@@ -1,0 +1,13 @@
+fn fibonacci(n:u32)->u32{ 				//erstelle eine Funktion "fibonacci"
+	if n==0 {                              			 //für die erste Fibonacci-Zahl... 
+		0                                   			//...0 zurückgeben
+	}else if n==1{                          			//für die zweite Fibonacci-Zahl... 
+		1                                   			//...1 zurückgeben
+	}else{                                  			//Alle weiteren Fibonacci-Zahlen...
+	fibonacci(n-1)+fibonacci(n-2)		//...berechnen durch Rekursion
+	}
+}
+/*_____________________________Main_______________________________________*/
+fn main (){
+println!("{}",fibonacci(50));			 //Ausgabe der n-ten Fibonacci-Zahl
+}
