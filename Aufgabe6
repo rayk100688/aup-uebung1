@@ -1,0 +1,41 @@
+Aufgabe 5
+fn show(n:u32)->u32{ 						//erstelle eine Funktion "show"
+	if n%10 != n {							//wenn das Literal wenigstens zweistellig ist...
+		println!("{}",n%10);					//... gib die letzte Stelle aus
+		show(n/10)						//Rekursion mit einer Stelle weniger
+	} else {								//wenn das Literal einstellig ist...
+		n%10                                				//... gib die letzte Stelle zurück	
+	}
+}
+/*Um das Literal Rückwärts stellenweise auszugeben wird eine Hilfsfunktion genutzt um die 
+Gesamtlänge bekannt zu machen. Eine zweite Hilfsfunktion erzeugt die Zehnerpotenzen.
+Eine zweite Möglichkeit für eine umgekehrte Ausgabe wäre: das Literal erst umstapeln
+und dann in mit der show-Funktion ausgeben.*/
+
+fn show_reverse (n:u32)->u32{				//erstelle eine Funktion "show_reverse"
+	fn laenge_von_n (m:u32,z:u32)-> u32{		//erstelle eine Hilfsunktion "laenge_von_n"
+		if m%10!=m{					//wenn das Literal wenigstens zweistellig ist...
+			laenge_von_n(m/10,z+1)		//...Rekursion mit einer Stelle weniger und Zähler +1
+		}else{						//wenn das Literal einstellig ist...
+			z					//... gib den Zählerwert zurück
+		}						//Hilfsfunktion Ende
+	}										
+	fn pow (basis:u32, exponent:u32)->u32{		//erstelle eine Hilfsunktion "pow" zum potenzieren
+		if exponent==0{				//Abbruch Rekursion bei Exponent = 0
+			1					//Rückgabe 1 (verändert Multiplikation nicht)
+		}else{						//Wenn der Exponent noch >0 ist...
+			basis * pow(basis, exponent-1)	//Rekursion: Multiplikation mit Basis und Exponent -1
+		}                                   				//Hilfsfunktion Ende
+	}
+	if n%10 != n {								//wenn das Literal wenigstens zweistellig ist...
+		println!("{}",(n/pow(10,laenge_von_n(n,1)-1))); 		//Gib die vorderste Ziffer aus
+		show_reverse (n%pow(10,laenge_von_n(n,1)-1))    	//Rekursion mit n ohne vorderste Ziffer
+	}else{                                  						//wenn das Literal einstellig ist...
+		n%10                                					//... gib die letzte Stelle zurück
+	}
+}
+/*_____________________________Main_______________________________________*/
+fn main (){
+println!("{}",show(123456));		    	//Aufruf Ziffernweise vorwärts ausgeben
+println!("{}",show_reverse(123456));    	//Aufruf Ziffernweise rückwärts ausgeben
+}
